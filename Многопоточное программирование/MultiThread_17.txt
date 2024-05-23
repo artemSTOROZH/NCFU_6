@@ -1,0 +1,73 @@
+//Стороженко Артем ПИН-Б-О-21-1
+//Многопоточное программирование. Лабораторная работа N№14
+//Модифицировать работу 1 таким образом, чтобы строки из потов выводились последовательно (сначала из первого потока, затем из второго, затем снова из первого и т.д.), используя два семафора - счетчика
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <semaphore>
+#include <list>
+#include <chrono>
+using namespace std;
+std::mutex mut;
+list<string> string_list;
+std::counting_semaphore<10> sem(1);
+
+void SortStrings()
+{
+    while (true)
+    {
+        this_thread::sleep_for(chrono::milliseconds(5000));
+        if (mut.try_lock())
+        {
+            for (auto iter = string_list.begin(); iter != string_list.end(); iter++)
+            {
+                if (string_list.begin() == string_list.end())
+                {
+                    break;
+                }
+                for (auto current = iter; current != string_list.end(); current++)
+                {
+                    if (*current < *iter)
+                    {
+                        auto temp = *current;
+                        *current = *iter;
+                        *iter = temp;
+                    }
+                }
+            }
+            mut.unlock();
+        }
+    }
+}
+int main()
+{
+    std::thread new_thread(SortStrings);
+    string new_string;
+    while (true)
+    {
+        cout << "Enter string: ";
+        cin >> new_string;
+        if (new_string == "show")
+        {
+            if (mut.try_lock())
+            {
+                for (auto const i : string_list)
+                {
+                    cout << i << endl;
+                }
+                mut.unlock();
+            }
+        }
+        else
+        {
+            if (mut.try_lock())
+            {
+                string_list.push_front(new_string);
+                mut.unlock();
+            }
+        }
+    }
+    new_thread.join();
+
+}

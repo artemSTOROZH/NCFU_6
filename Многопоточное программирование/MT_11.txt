@@ -1,0 +1,41 @@
+//Стороженко Артем ПИН-Б-О-21-1
+//Многопоточное программирование. Лабораторная работа N№11
+//Модифицировать работу 1 таким образом, чтобы строки из потов выводились последовательно (сначала из первого потока, затем из второго, затем снова из первого и т.д.)
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+std::mutex mut;
+std::condition_variable cv;
+bool printed_1 = true;
+bool printed_2 = false;
+void ThreadFunction()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        std::unique_lock<std::mutex> lk(mut);
+        cv.wait(lk, [] {return printed_1; });
+        std::cout << "Thread " << std::this_thread::get_id() << " printing..." << std::endl;
+        lk.unlock();
+        printed_2 = true;
+        printed_1 = false;
+        cv.notify_one();
+    }
+}
+int main()
+{
+    std::thread new_thread(ThreadFunction);
+    for (int i = 0; i < 10; i++)
+    {
+        std::unique_lock<std::mutex> lk(mut);
+        cv.wait(lk, [] {return printed_2; });
+        std::cout << "Thread " << std::this_thread::get_id() << " printing..." << std::endl;
+        lk.unlock();
+        printed_1 = true;
+        printed_2 = false;
+        cv.notify_one();
+    }
+    new_thread.join();
+
+}

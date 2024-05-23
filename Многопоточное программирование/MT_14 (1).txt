@@ -1,0 +1,31 @@
+//Стороженко Артем ПИН-Б-О-21-1
+//Многопоточное программирование. Лабораторная работа N№14
+//Модифицировать работу 1 таким образом, чтобы строки из потов выводились последовательно (сначала из первого потока, затем из второго, затем снова из первого и т.д.), используя два семафора - счетчика
+
+#include <iostream>
+#include <thread>
+#include <mutex>
+#include <semaphore>
+std::mutex mut;
+std::counting_semaphore<10> sem(1);
+void ThreadFunction()
+{
+    for (int i = 0; i < 10; i++)
+    {
+        sem.acquire();
+        std::cout << "Thread " << std::this_thread::get_id() << " printing..." << std::endl;
+        sem.release();
+    }
+}
+int main()
+{
+    std::thread new_thread(ThreadFunction);
+    for (int i = 0; i < 10; i++)
+    {
+        sem.acquire();
+        std::cout << "Thread " << std::this_thread::get_id() << " printing..." << std::endl;
+        sem.release();
+    }
+    new_thread.join();
+
+}
