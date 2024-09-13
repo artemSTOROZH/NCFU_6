@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+
+        </ul>
+
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+<body>
+
+<main>
+    <section class="game-details">
+        <h2>Dark Souls III</h2>
+
+        <p>
+            Описание
+        </p>
+        <img src="dark%20souls%20iii.webp" alt="Dark Souls III obloga">
+        <p>
+            Dark Souls продолжит испытывать игроков на прочность в новой главе знаменитой серии, собравшей множество
+            наград и определившей лицо жанра. Соберитесь с духом и погрузитесь во тьму!
+        </p>
+
+
+        <p>
+            Цена: 1099 руб
+        </p>
+        <button onclick="addToCart(4, 'DARK SOULS III', 1099, 'DarkSoulsIII.html')">В корзину</button>
+    </section>
+
+    <section class="reviews">
+        <h2>Отзывы</h2>
+        <div class="review">
+            <p class="author-name">Илья Курбатов</p>
+            <p class="review-text">Легендарная игра!</p>
+        </div>
+        <div class="review">
+            <p class="author-name">maxfrei</p>
+            <p class="review-text">Игра затянула, лучше чем первая часть</p>
+        </div>
+        <!-- Добавьте больше отзывов по вашему усмотрению -->
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+<script src="cart.js">
+    updateCartUI();
+</script>
+</body>
+</html>
