@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+
+        </ul>
+
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+<body>
+
+<main>
+    <section class="game-details">
+        <h2>HELLDIVERS II</h2>
+
+        <p>
+            Описание
+        </p>
+        <img src="helldiversii.webp" alt="helldivers">
+        <p>
+            Свобода. Мир. Демократия.
+            Ваши права граждан Супер-Земли — основы нашей цивилизации.
+            Самого нашего существования.
+            Но война продолжается. И вновь всему, что нас окружает, грозит опасность.
+            Вступите в величайшую армию в истории и сделайте галактику безопасной и свободной.
+            Вы попадете в отряды, в которые может входить до четырех Адских Десантников, и отправитесь на стратегически
+            важные задания.
+            Прикрывайте друг друга. Огонь по своим — это печальная данность войны, но для победы необходимо работать
+            в команде.*
+        </p>
+        <p>
+            Цена: 2999 руб
+        </p>
+        <button onclick="addToCart(1, 'HELLDIVERS II', 2999, 'HELLDIVERSII.html')">В корзину</button>
+    </section>
+
+    <section class="reviews">
+        <h2>Отзывы</h2>
+        <div class="review">
+            <p class="author-name">Waberabe</p>
+            <p class="review-text">Лучшая кооперативная игра за последние годы!</p>
+        </div>
+        <div class="review">
+            <p class="author-name">Drimmi</p>
+            <p class="review-text">Супер!</p>
+        </div>
+        <!-- Добавьте больше отзывов по вашему усмотрению -->
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+<script src="cart.js">
+    updateCartUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+        </ul>
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+
+<body>
+<h2>Регистрация пользователя</h2>
+<form id="registration-form" onsubmit="return validateForm()">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+        <label for="phone">Номер телефона:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" required>
+        <small>Введите 11 цифр без пробелов и других символов</small>
+    </div>
+    <div>
+        <label for="username">Логин:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" minlength="4" required>
+        <small>Минимум 4 символов</small>
+    </div>
+    <button type="submit">Зарегистрироваться</button>
+</form>
+
+<footer class="footer">
+    <div class="footer-buttons">
+        <a href="registration.html" style="text-decoration: none; font-size: 20px; color: inherit;">Кабинет</a>
+        <a href="test.html" style="text-decoration: none; font-size: 20px; color: inherit;">Тесты</a>
+    </div>
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+
+<script src="validation.js"></script>
+<script src="cart.js">
+    updateCartUI();
+</script>
+
+</body>
+</html>

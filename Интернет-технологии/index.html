@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <button id="theme-toggle">Переключить тему</button>
+    <link  rel="preload stylesheet" href="styles.css">
+</head>
+
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+
+        </ul>
+
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+
+<body>
+<main>
+    <section id="new games">
+        <h2>Новинки</h2>
+        <div class="slider-container" >
+            <div class="slider-content">
+                <div class="game-card" tabindex="1">
+                    <a href="HELLDIVERSII.html">
+                    <img src="helldiversii.webp" alt="Helldivers II">
+                    <h3>HELLDIVERS II</h3>
+                    <footer class="price">
+                        <p>Стоимость: 2999 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(1, 'HELLDIVERS II', 2999, 'HELLDIVERSII.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="2">
+                    <a href="DragonsDogmaII.html">
+                    <img src="dragonsdogmaii.webp" alt="Dragon's Dogma II">
+                    <h3>Dragon's Dogma II</h3>
+                    <footer class="price">
+                        <p>Стоимость: 5390 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(2, 'Dragon\'s Dogma II', 5390, 'DragonsDogmaII.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="3">
+                    <a href="DIABLOIV.html">
+                    <img src="diabloiv.webp" alt="Diablo IV">
+                    <h3>Diablo IV</h3>
+                    <footer class="price">
+                        <p>Стоимость: 3999 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(3, 'Diablo IV', 3999, 'DIABLOIV.html')">В корзину</button>
+                </div>
+            </div>
+        </div>
+        <button class="arrow-right" tabindex="0"> </button>
+        <button class="arrow-left" tabindex="0"> </button>
+    </section>
+
+    <section id="sales">
+        <h2>Скидки</h2>
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="game-card" tabindex="0" >
+                    <a href="DarkSoulsIII.html">
+                    <img src="dark%20souls%20iii.webp" alt="Dark Souls III">
+                    <h3>DARK SOULS III</h3>
+                    <footer class="sales">
+                        <p>Стоимость: 1099 руб <del class="discount-price">2200</del></p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(4, 'DARK SOULS III', 1099, 'DarkSoulsIII.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="1">
+                    <a href="DarkSoulsIIScholarOfTheFirstSin.html">
+                    <img src="dark%20souls%20ii.webp" alt="Dark Souls II">
+                    <h3>DARK SOULS II SCHOLAR OF THE FIRST SIN</h3>
+                    <footer class="sales">
+                        <p>Стоимость: 799 руб <del class="discount-price">1600</del></p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(5, 'DARK SOULS II: SCHOLAR OF THE FIRST SIN', 799, 'DarkSoulsIIScholarOfTheFirstSin.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="2">
+                    <a href="DarkSoulsRemastered.html">
+                    <img src="dark%20souls%20i.webp" alt="Dark Souls I">
+                    <h3>DARK SOULS REMASTERED</h3>
+                    <footer class="sales">
+                        <p>Стоимость: 899 руб <del class="discount-price">1300</del></p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(6, 'DARK SOULS REMASTERED', 899, 'DarkSoulsRemastered.html')">В корзину</button>
+                </div>
+            </div>
+        </div>
+        <button class="arrow-right" tabindex="1"> </button>
+        <button class="arrow-left" tabindex="1"> </button>
+    </section>
+
+    <section id="300rub">
+        <h2>До 300 рублей</h2>
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="game-card" tabindex="0">
+                    <a href="StardewValley.html">
+                    <img src="stardewvalley.png" alt="Stardew Valley">
+                    <h3>Stardew Valley</h3>
+                    <footer class="price">
+                        <p>Стоимость: 299 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(7, 'Stardew Valley', 299, 'StardewValley.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="1">
+                    <a href="7DaysToDie.html">
+                    <img src="7days.png" alt="7 Days To Die">
+                    <h3>7 Days To Die</h3>
+                    <footer class="price">
+                        <p>Стоимость: 189 рублей</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(8, '7 Days To Die', 189, '7DaysToDie.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="2">
+                    <a href="VampireSurvivors.html">
+                    <img src="vampiresurv.webp" alt="Vampire Survival">
+                    <h3>Vampire Survivors</h3>
+                    <footer class="price">
+                        <p>Стоимость: 199 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(9, 'Vampire Survivors', 199, 'VampireSurvivors.html')">В корзину</button>
+                </div>
+            </div>
+        </div>
+        <button class="arrow-right" tabindex="2"> </button>
+        <button class="arrow-left" tabindex="2"> </button>
+    </section>
+
+    <section id="rugames">
+        <h2>Отечественный продукт</h2>
+        <div class="slider-container">
+            <div class="slider-content">
+                <div class="game-card" tabindex="0">
+                    <a href="EscapeFromTarkov.html">
+                    <img src="escapefromtarkov.png" alt="Escape From Tarkov">
+                    <h3>Escape from Tarkov</h3>
+                    <footer class="price">
+                        <p>Стоимость: 1800 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(10, 'Escape From Tarkov', 1800, 'EscapeFromTarkov.html')">В корзину</button>
+                </div>
+                <div class="game-card" tabindex="2">
+                    <a href="Smuta.html">
+                    <img src="smuta.png" alt="SMUTA">
+                    <h3>Смута</h3>
+                    <footer class="price">
+                        <p>Стоимость: 1999 руб</p>
+                    </footer>
+                    </a>
+                    <button onclick="addToCart(12, 'Смута', 1999, 'Smuta.html')">В корзину</button>
+                </div>
+            </div>
+        </div>
+        <button class="arrow-right" tabindex="3"> </button>
+        <button class="arrow-left" tabindex="3"> </button>
+    </section>
+
+</main>
+<footer class="footer">
+    <div class="footer-buttons">
+        <a href="registration.html" style="text-decoration: none; font-size: 20px; color: inherit;">Кабинет</a>
+        <a href="test.html" style="text-decoration: none; font-size: 20px; color: inherit;">Тесты</a>
+    </div>
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+
+<script src="scripts.js">
+
+
+</script>
+<script src="cart.js">
+    updateCartUI();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+
+        </ul>
+
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+<body>
+
+<main>
+    <section class="game-details">
+        <h2>Dragon's Dogma II</h2>
+
+        <p>
+            Описание
+        </p>
+        <img src="dragonsdogmaii.webp" alt="dragonsdogma">
+        <p>
+            Восставший, отправляйся в великое приключение!
+
+            Dragon's Dogma — это однопользовательская ролевая игра, где игрок может выбрать практически все:
+            внешность своего Восставшего, профессию, партию, решения в различных ситуациях и многое другое.
+            А в долгожданном продолжении Dragon's Dogma 2 вас ждет глубокий фэнтезийный мир, в котором захочется
+            исследовать каждый уголок.
+            В путешествии к вам присоединятся пешки — загадочные потусторонние существа, настолько уникальные,
+            что вам покажется, будто вас сопровождают настоящие живые игроки.
+        </p>
+        <p>
+            Цена: 5390 руб
+        </p>
+        <button onclick="addToCart(2, 'Dragons Dogma II', 5390, 'DragonsDogmaII.html')">В корзину</button>
+    </section>
+
+    <section class="reviews">
+        <h2>Отзывы</h2>
+        <div class="review">
+            <p class="author-name">MarshallSnow</p>
+            <p class="review-text">10/10 драконов!</p>
+        </div>
+        <div class="review">
+            <p class="author-name">Kz00texnik</p>
+            <p class="review-text">Игра года!</p>
+        </div>
+        <!-- Добавьте больше отзывов по вашему усмотрению -->
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+<script src="cart.js">
+    updateCartUI();
+</script>
+</body>
+</html>

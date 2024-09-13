@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+
+        </ul>
+
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+<body>
+
+<main>
+    <section class="game-details">
+        <h2>Dark Souls II: Scholar Of The First Sin</h2>
+
+        <p>
+            Описание
+        </p>
+        <img src="dark%20souls%20ii.webp" alt="7days obloga">
+        <p>
+            DARK SOULS™ II: Scholar of the First Sin выводит свойственные серии мрачность и увлекательный процесс игры
+            на новый уровень. Путешествуйте, сражайтесь с врагами, преодолевайте опасности и испытания.
+        </p>
+        <p>
+            Цена: 799 руб
+        </p>
+        <button onclick="addToCart(5, 'DARK SOULS II: SCHOLAR OF THE FIRST SIN', 799, 'DarkSoulsIIScholarOfTheFirstSin.html')">В корзину</button>
+    </section>
+
+    <section class="reviews">
+        <h2>Отзывы</h2>
+        <div class="review">
+            <p class="author-name">Warant13</p>
+            <p class="review-text">Отличная игра!</p>
+        </div>
+        <div class="review">
+            <p class="author-name">EXSilus</p>
+            <p class="review-text">Графика подкачала</p>
+        </div>
+        <!-- Добавьте больше отзывов по вашему усмотрению -->
+    </section>
+</main>
+<footer class="footer">
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+<script src="cart.js">
+    updateCartUI();
+</script>
+</body>
+</html>

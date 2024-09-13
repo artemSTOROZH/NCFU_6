@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровой лабиринт</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<header>
+    <button class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Игровой лабиринт</a></button>
+    <nav>
+        <ul>
+            <li><a href="index.html " style="text-decoration: none ; font-size: 30px;  color: inherit;" >Главная</a></li>
+            <li><a href="games.html" style="text-decoration: none; font-size: 30px; color: inherit;">Игры</a></li>
+            <li><a href="contact.html" style="text-decoration: none; font-size: 30px; color: inherit;">Контакты</a></li>
+            <li><a href="registration.html" style="text-decoration: none; font-size: 30px; color: inherit;">Личный кабинет</a></li>
+            <li><button id="show-cart-btn" style="text-decoration: none; font-size: 30px; color: inherit;">Корзина</button>
+                <div id="cart-container"></div>
+            </li>
+
+        </ul>
+
+        <div id="total-price">Общая сумма: 0 руб.</div>
+    </nav>
+</header>
+<body>
+<h1>Тест на знание таблицы умножения</h1>
+<div id="question"></div>
+<input type="text" id="answer">
+<button onclick="checkAnswer()">Проверить</button>
+<div id="result"></div>
+<button><a href="task1.html" style="text-decoration: none; color: inherit;">Первое задание</a></button>
+<button><a href="task2.html" style="text-decoration: none; color: inherit;">Второе задание</a></button>
+<script>
+    var correctAnswers = 0;
+    var wrongAnswers = 0;
+    var count = 0;
+    var currentProduct = null; // Переменная для хранения правильного ответа на текущий вопрос
+
+    function generateQuestion() {
+        var num1 = Math.floor(Math.random() * 10) + 1; // Генерируем случайное число от 1 до 10
+        var num2 = Math.floor(Math.random() * 10) + 1;
+        currentProduct = num1 * num2; // Сохраняем правильный ответ
+        document.getElementById('question').textContent = num1 + ' * ' + num2 + ' =';
+    }
+
+    function checkAnswer() {
+        var userAnswer = parseInt(document.getElementById('answer').value);
+        if (!isNaN(userAnswer)) {
+            if (userAnswer === currentProduct) { // Сравниваем с сохраненным правильным ответом
+                correctAnswers++;
+                document.getElementById('result').textContent = 'Верно!';
+            } else {
+                wrongAnswers++;
+                document.getElementById('result').textContent = 'Неверно. Правильный ответ: ' + currentProduct;
+            }
+            count++;
+            if (count < 10) {
+                generateQuestion(); // Генерируем новый вопрос только после проверки ответа
+                document.getElementById('answer').value = '';
+            } else {
+                document.getElementById('question').textContent = '';
+                document.getElementById('answer').style.display = 'none';
+                document.querySelector('button').style.display = 'none';
+                document.getElementById('result').textContent = 'Тест завершен. Верных ответов: ' + correctAnswers + ', Неверных ответов: ' + wrongAnswers;
+            }
+        } else {
+            alert('Пожалуйста, введите число.');
+        }
+    }
+
+    window.onload = function () {
+        generateQuestion();
+    };
+</script>
+<footer class="footer">
+    <div class="footer-buttons">
+        <a href="registration.html" style="text-decoration: none; font-size: 20px; color: inherit;">Кабинет</a>
+        <a href="test.html" style="text-decoration: none; font-size: 20px; color: inherit;">Тесты</a>
+    </div>
+    <p>&copy; 2024 Игровой лабиринт</p>
+</footer>
+</body>
+</html>
